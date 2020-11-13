@@ -94,6 +94,7 @@ En Terminal, escribir las siguientes dos líneas:
 
 <div style="margin-bottom:25px;">
 </div>
+<br>
 
 
 ## ¿Cómo instalar RStudio?
@@ -110,11 +111,14 @@ Para Ubuntu, hay que correr estas líneas en Terminal:
 
 <div style="margin-bottom:25px;">
 </div>
+<br>
 
 
 ## ¿Cómo instalo LaTeX?
 
 Es importante tener LaTeX para crear documentos en PDF. Para instalarlo, hay que entrar a [este sitio](https://www.latex-project.org/get/) y seleccionar nuestro sistema operativo. 
+
+<br>
 
 
 ## Textos, libros y materiales
@@ -150,6 +154,7 @@ Hay, realmente, miles de materiales excelentes para aprender `R`. En mi experien
 <div style="margin-bottom:25px;">
 </div>
 
+<br>
 
 
 #### RMarkdown y otras herramientas
@@ -209,6 +214,7 @@ Algunos repositorios recomendados para buscar buenas bases de datos.
 - [Empirical Studies of Conflict](https://esoc.princeton.edu/)
 
 
+<br>
 
 
 

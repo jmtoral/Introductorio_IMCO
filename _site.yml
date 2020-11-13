@@ -1,10 +1,14 @@
 name: "Introductorio_IMCO"
 output_dir: "."
 navbar:
-  title: "Curso Introductorio de R para personal del IMCO"
+  title: "Curso Introductorio de R | IMCO"
   right:
-    - icon: fa-question fa-lg
-      href: https://example.com
+    - icon: fa-github fa-lg
+      href: https://github.com/jmtoral/
+    - icon: fa-envelope-o fa-lg
+      href: mailto:jmtoralcruz@gmail.com
+    - icon: fa-twitter fa-lg
+      href: https://twitter.com/jmtoralc
   left:
     - text: "Home"
       href: index.html
@@ -18,6 +22,10 @@ navbar:
       menu:
         - text: "Sesión 1"
           href: s1.html  
+    - text: "Tareas"
+      menu:
+        - text: "Tarea 1"
+          href: t1.html
     - text: "Acerca del instructor"
       href: about.html
 output:

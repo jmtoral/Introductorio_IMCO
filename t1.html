@@ -9,9 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Manuel Toral" />
 
+<meta name="date" content="2020-12-11" />
 
-<title>Syllabus</title>
+<title>Tarea 1</title>
 
 <script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -20,9 +22,6 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -266,69 +265,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -336,16 +272,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -436,102 +362,47 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Syllabus</h1>
-<h3 class="subtitle"><h4 style="font-style:normal">
-Curso introductorio al lenguaje R
-</h4></h3>
-<h4 class="date"><h4 style="font-style:normal">
-Otoño 2020
-</h4></h4>
+<h1 class="title toc-ignore">Tarea 1</h1>
+<h4 class="author">Manuel Toral</h4>
+<h4 class="date">12/11/2020</h4>
 
 </div>
 
 
-<style>
-p.comment {
-background-color: #DBDBDB;
-padding: 10px;
-border: 1px solid black;
-margin-left: 25px;
-border-radius: 5px;
-font-style: italic;
-}
+<ol style="list-style-type: decimal">
+<li>Abre un nuevo script desde <em>RStudio</em>.</li>
+<li>Copia el script que está contenido en la caja. Encontrarás instrucciones en cada comentario dentro de corchetes “[ ]”.</li>
+<li>Resuelve cada ejercicio y asegúrate que corra completamente.</li>
+</ol>
+<pre class="r"><code>## Título: Tarea 1
+## Autora o autor: [Pon tu nombre]
+## Fecha: [Fecha en que realizas la tarea]
 
-.figure {
-   margin-top: 20px;
-   margin-bottom: 20px;
-}
 
-h1.title {
-  font-weight: bold;
-  font-family: Arial;  
-}
+#### 0. Setup =====================================================
 
-h2.title {
-  font-family: Arial;  
-}
+## a. [Limpia tu espacio de trabajo con el comando rm()]
 
-</style>
-<style type="text/css">
-#TOC {
-  font-size: 13px;
-  font-family: Arial;
-}
-</style>
-<p><br />
-</p>
-<div id="sesión-1" class="section level2">
-<h2>Sesión 1</h2>
-<div id="introducción-a-r-y-a-rstudio-uso-petición-de-ayuda-trabajo-en-terminal." class="section level3">
-<h3>Introducción a R y a RStudio: uso, petición de ayuda, trabajo en terminal.</h3>
-<ul>
-<li><p>¿Qué es <em>R</em>?, ¿quién lo inventó?, ¿con qué se come?… A todo esto, ¿por qué usarlo?</p></li>
-<li><p>¿Qué es <em>RStudio</em>? ¿Por qué usar un <em>IDE</em> y no directamente en terminal? ¿Es el único? ¿Cómo funciona?</p></li>
-<li><p>¿Por qué tengo que trabajar en terminal? ¿Por qué preferiría sufrir a usar <em>Excel</em>?</p></li>
-<li><p>Lo más importante: si se acaba este curso y no sé cómo resolver un problema. ¿Dónde puedo pedir ayuda?</p></li>
-</ul>
-</div>
-<div id="introducción-al-uso-de-bibliotecas." class="section level3">
-<h3>Introducción al uso de bibliotecas.</h3>
-<ul>
-<li><p>Instalación: Sólo una vez</p></li>
-<li><p>Llamado: Muchas veces. ¿Por qué?</p></li>
-</ul>
-</div>
-<div id="introducción-a-la-sintaxis-base-y-del-tidyverse." class="section level3">
-<h3>Introducción a la sintaxis base y del tidyverse.</h3>
-<ul>
-<li><p>Un lenguaje, dos sintaxis (tres, en realidad).</p></li>
-<li><p>El tidyverso.</p></li>
-</ul>
-<div style="margin-bottom:25px;">
+#### 1. Bibliotecas  =====================================================
 
-</div>
-</div>
-</div>
-<div id="sesión-2" class="section level2">
-<h2>Sesión 2</h2>
-<div style="margin-bottom:25px;">
+## b. [Llama a las siguientes bibliotecas: tidyverse, janitor, tidytuesdayR y fivethirtyeight.
+##     Asegúrate de instalar las bibliotecas que no tengas instaladas.]
 
-</div>
-</div>
-<div id="sesión-3" class="section level2">
-<h2>Sesión 3</h2>
-<div style="margin-bottom:25px;">
+#### 3. Datos  =====================================================
 
-</div>
-</div>
-<div id="sesión-4" class="section level2">
-<h2>Sesión 4</h2>
-<div style="margin-bottom:25px;">
+## c.1. [La biblioteca fivethirtyeight permite llamar a la base hate_crimes con solo escribirla.
+##       escribe hate_crimes y observa que pasa.]
+## c.2. [Guarda en un objeto llamado &quot;odio&quot; la base de datos &quot;hate_crimes&quot;]
 
-</div>
-</div>
+
+#### 4. Explorar  =====================================================
+
+## d.1 [Utiliza el comando summary para explorar cada variable de la base]
+## d.2 [Haz una gráfica de contingenica usando la variable hate_crimes_per_100k_splc como
+##      variable dependiente y median_house_inc como variable independiente.]</code></pre>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -564,32 +435,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 
 </body>

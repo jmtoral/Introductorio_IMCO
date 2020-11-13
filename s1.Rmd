@@ -51,11 +51,120 @@ h2.title {
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Mis primeros comandos 
+## Mis primeros comandos 
 
 ```{r}
 2 + 2
 
 sqrt(4)
+```
+
+## Mis primeros objetos
+
+```{r}
+numero <- 5
+
+nombre <- "María"
+
+logico <- FALSE
+```
+
+
+## Mis primeros vectores
+
+```{r}
+numeros <- c(5, 8, 12, 34, sqrt(4), 2^2)
+
+nombres <- c("María", "Juan", "Jalil", "Frida", "Selena", "Pedro")
+
+logicos <- c(FALSE, TRUE, TRUE, TRUE, FALSE, TRUE)
+```
+
+## Mi primer malla de datos
+
+```{r}
+malla <- data.frame(numeros,
+                       nombres,
+                       logicos)
+
+malla
+```
+
+
+## Mis primeras operaciones en R-Base
+
+Utiliza el símbolo de "$" para explorar tus nuevas variables.
+
+```{r}
+malla$nombres
+
+malla[1,] #Filas
+
+malla[,1] #Columnas
+
+malla[1,2]
+```
+
+
+Vamos a limpiar nuestro espacio de trabajo.
+
+```{r}
+rm(list = ls())
+```
+
+## Mi primer producto de datos
+
+### Algunas buenas prácticas
+
+## Instalar bibliotecas
+
+El comando `install.packages()` nos permite instalar paquetes. Si bien sólo se necesita usar una vez para poder utilizar cada biblioteca, es importante estar al pendiente de las actualizaciones de los paquetes.
+
+El comando `library()` sirve para llamar paquetes. *R* permite optimizar los recursos al exigir que sólo usemos los programas que utilicemos.
+
+Por ejemplo, instalemos el *tidyverse*.
+
+1. Debemos instalar el paquete.
+
+```{r, eval=F}
+install.packages("tidyverse")
+install.packages("fivethirtyeight")
+```
+
+2. Llamamos el paquete para trabajar con éste.
+
+```{r}
+library(tidyverse)
+library(fivethirtyeight)
+```
+
+## Llamar de datos
+
+Aquí hicimos vamos a hacer trampa. El paquete *fivethirtyeight* es el repositorio de la revista del mismo nombre que dirige el Profesor Nate Silver. Este paquete contiene muchas de las bases usadas para los artículos de la revista. Así que una vez que invocamos la biblioteca *fivethityeight* basta nombrar las bases para usarlas. Sólo para divertirnos usaremos la base `biopics` que le sirve a la autora Hannah Fingerhut para argumentar que la película biográfica *Straight Outta Compton* es una rareza por tratarse de una película sobre personas afroamericanas.
+
+Además, podemos guardar esta tabla en un objeto para manipularlo con mayo facilidad.
+
+```{r}
+biopics
+
+bio <- biopics
+```
+
+
+## Algunas operaciones con Rbase
+
+```{r}
+table(bio$country)
+
+prop.table(table(bio$country))
+
+
+paises <- table(bio$country)
+
+proporcion_paises <- prop.table(paises)
+
+redondeo <- round(proporcion_paises, 4)
+
+redondeo*100
 ```
 

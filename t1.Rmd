@@ -1,0 +1,48 @@
+---
+title: "Tarea 1"
+author: "Manuel Toral"
+date: "12/11/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+1. Abre un nuevo script desde *RStudio*.
+2. Copia el script que está contenido en la caja. Encontrarás instrucciones en cada comentario dentro de corchetes "[ ]".
+3. Resuelve cada ejercicio y asegúrate que corra completamente.
+
+```{r, eval = F}
+
+## Título: Tarea 1
+## Autora o autor: [Pon tu nombre]
+## Fecha: [Fecha en que realizas la tarea]
+
+
+#### 0. Setup =====================================================
+
+## a. [Limpia tu espacio de trabajo con el comando rm()]
+
+#### 1. Bibliotecas  =====================================================
+
+## b. [Llama a las siguientes bibliotecas: tidyverse, janitor, tidytuesdayR y fivethirtyeight.
+##     Asegúrate de instalar las bibliotecas que no tengas instaladas.]
+
+#### 3. Datos  =====================================================
+
+## c.1. [La biblioteca fivethirtyeight permite llamar a la base hate_crimes con solo escribirla.
+##       escribe hate_crimes y observa que pasa.]
+## c.2. [Guarda en un objeto llamado "odio" la base de datos "hate_crimes"]
+
+
+#### 4. Explorar  =====================================================
+
+## d.1 [Utiliza el comando summary para explorar cada variable de la base]
+## d.2 [Haz una gráfica de contingenica usando la variable hate_crimes_per_100k_splc como
+##      variable dependiente y median_house_inc como variable independiente.]
+
+```
+

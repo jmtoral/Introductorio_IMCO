@@ -62,7 +62,15 @@ h2.title {
 
 ### Introducción al uso de bibliotecas.
 
+- Instalación: Sólo una vez
+
+- Llamado: Muchas veces. ¿Por qué?
+
 ### Introducción a la sintaxis base y del tidyverse.
+
+- Un lenguaje, dos sintaxis (tres, en realidad).
+
+- El tidyverso.
 
 
 
