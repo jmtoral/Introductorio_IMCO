@@ -18,10 +18,14 @@ navbar:
       menu:
         - text: "Presentación 1"
           href: p1.html  
+        - text: "Presentación 2"
+          href: p2.html
     - text: "Código"
       menu:
         - text: "Sesión 1"
-          href: s1.html  
+          href: s1.html
+        - text: "Sesión 2"
+          href: s2.html 
     - text: "Tareas"
       menu:
         - text: "Tarea 1"

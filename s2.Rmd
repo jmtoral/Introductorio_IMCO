@@ -1,0 +1,158 @@
+---
+title: "Sesión 2"
+subtitle: <h4 style="font-style:normal">La creación de un flujo de trabajo</h4>
+date: <h4 style="font-style:normal">21 de noviembre de 2020</h4>
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    theme: cosmo
+---
+
+
+<style>
+p.comment {
+background-color: #DBDBDB;
+padding: 10px;
+border: 1px solid black;
+margin-left: 25px;
+border-radius: 5px;
+font-style: italic;
+}
+
+.figure {
+   margin-top: 20px;
+   margin-bottom: 20px;
+}
+
+h1.title {
+  font-weight: bold;
+  font-family: Arial;  
+}
+
+h2.title {
+  font-family: Arial;  
+}
+
+</style>
+
+
+<style type="text/css">
+#TOC {
+  font-size: 13px;
+  font-family: Arial;
+}
+</style>
+
+\
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Objetivo
+
+El objetivo de esta sesión es el de entender los 5 procesos fundamentales del *tidyverse*.
+
+1. `select()`
+2. `arrange()`
+3. `filter()`
+4. `mutate()`
+5. `group_by() + summarise()`
+
+Para ese fin, haremos una limpieza de datos (*wrangling*) y los trataremos para respondernos una pregunta candente: ¿cómo ha gastado el gobierno federal el dinero destinado a comunicación social?
+
+## Estrategia
+
+Como siempre usaremos una estrategia muy ordenada. Como dijimos la sesión pasada, el orden a niveles obsesivos es siempre una gran inversión de tiempos.
+
+### 0. Setup
+
+```{r}
+rm(list = ls())
+```
+
+### 1. Bibliotecas
+
+```{r}
+library(tidyverse)
+library(readxl) #Ya instalado con el tidyverse
+library(janitor) #Joya
+```
+
+### 2. Datos
+
+### 2.1 Descarga
+
+Descargaremos el archivo directamente desde el código.
+
+```{r, eval=F}
+url <- "http://funcionpublica.gob.mx/web/transparencia/transparencia-focalizada/2020/Base_de_datos_Polizas_12_Diciembre-2019_Definitivo_Transp.xlsx"
+
+destfile <- "datos/comsoc.xlsx"
+
+download.file(url, destfile, mode = "wb")
+```
+
+#### 2.2 Importar
+
+El resultado de la importación es una cosa horrible.
+
+Aquí podrías utilizar el modo *manual* también.
+
+```{r}
+comsoc.19 <- read_excel("datos/comsoc.xlsx")
+
+comsoc.19
+```
+
+¿Qué observas?, ¿qué está mal?, ¿cómo podríamos solucionarlo?
+
+#### 2.3 Wrangling
+
+De entrada, *MS Excel* se acomoda por hojas de cálculo en libros. Entonces, lo primero es observar cómo podemos quedarnos solamente con la información relevante. Vamos por pasos.
+
+De entrada, R lee la primera hoja, pero no es la única que comprende este archivo.
+
+```{r}
+excel_sheets(path = "datos/comsoc.xlsx") # Nombres de las hojas
+```
+
+
+Segundo, con `skip` podemos brincarnos los renglones que nos estorban en el título y que ponen el logo de la dependencia.
+
+```{r}
+comsoc.19a <- read_excel("datos/comsoc.xlsx", 
+                        skip=5,
+                        sheet = "Pólizas C-3600 Dic-2019 Defini")
+
+comsoc.19b <- read_excel("datos/comsoc.xlsx", 
+                        skip=5,
+                        sheet = "Pólizas P-33605 Dic-2019 Defini")
+
+comsoc.19 <- bind_rows(comsoc.19a, comsoc.19b)
+```
+
+Tercero, y como el tiempo apremia, podemos filtrar aquellas observaciones que tienen espacio vacío en *Costo*. Esta estrategia es útil, pero falta un paso. Como el excel
+
+```{r}
+comsoc.19.limpio <- comsoc.19 %>% 
+  filter(!is.na(Costo)) %>% 
+  filter(Sector != "Sector") 
+
+comsoc.19.limpio
+```
+
+
+```{r}
+glimpse(comsoc.19.limpio)
+```
+
+```{r}
+comsoc.19.limpio %>% 
+  mutate(Costo = as.numeric(Costo)) %>% 
+  arrange(-Costo)
+```
+
