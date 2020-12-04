@@ -30,6 +30,8 @@ navbar:
       menu:
         - text: "Tarea 1"
           href: t1.html
+        - text: "Tarea 2"
+          href: t2.html
     - text: "Acerca del instructor"
       href: about.html
 output:

@@ -151,8 +151,131 @@ glimpse(comsoc.19.limpio)
 ```
 
 ```{r}
-comsoc.19.limpio %>% 
-  mutate(Costo = as.numeric(Costo)) %>% 
-  arrange(-Costo)
+comsoc.19.limpio <- comsoc.19.limpio %>% 
+  mutate(Costo = as.numeric(Costo)) %>% # Convertir caracter a números
+  arrange(-Costo) %>% 
+  clean_names() ## Limpiar nombres
+
+glimpse(comsoc.19.limpio )
 ```
+
+### 3 Análisis
+
+#### 3.1 Pregunta: ¿Qué dependencia ha gastado más en publicidad oficial?
+
+- **Hipótesis**: Secretaría de Salud es la que más ha gastado.
+
+
+```{r}
+dependencias <- comsoc.19.limpio %>%
+  group_by(nombre) %>% 
+  summarise(costo_total = sum(costo)) %>% 
+  arrange(-costo_total)%>% 
+  ungroup %>% 
+  mutate(proporcion = costo_total/sum(costo_total)) %>% 
+  mutate(proporcion =round(proporcion*100, 2))
+```
+
+¿Cómo filtrar solamente a la Defensa?
+
+```{r}
+dependencias %>% 
+  filter(str_detect(nombre, "Defensa|DEFENSA|defensa"))
+
+dependencias %>% 
+  filter(nombre == "SECRETARÍA DE LA DEFENSA NACIONAL  (SEDENA)")
+```
+
+
+
+
+
+#### 3.2 Pregunta: ¿Qué empresa ha cobrado más en publicidad oficial?
+
+- **Hipótesis**: TV Azteca es la que más ha gastado.
+
+
+```{r}
+names(comsoc.19.limpio)
+glimpse(comsoc.19.limpio)
+
+empresa <- comsoc.19.limpio %>%
+  mutate(Costo = as.numeric(Costo)) %>%  # Convertir caracter a números
+  group_by(beneficiario) %>% ### El grupo que define la empresa
+  summarise(costo_total = sum(Costo)) %>% 
+  arrange(-costo_total) %>% 
+  ungroup %>% 
+  mutate(proporcion = costo_total/sum(costo_total)) %>% 
+  mutate(proporcion =round(proporcion*100, 2))
+```
+
+
+
+
+#### 3.3 Pregunta: ¿Qué producto es el que mas se vende?
+
+```{r}
+
+producto <- comsoc.19.limpio %>% 
+  group_by(descripcion_producto) %>% ### El grupo que define la empresa
+  summarise(costo_total = sum(costo)) %>% 
+  arrange(-costo_total) %>% 
+  ungroup %>% 
+  mutate(proporcion = costo_total/sum(costo_total)) %>% 
+  mutate(proporcion =round(proporcion*100, 2))
+
+ 
+```
+
+
+### 4. Algunas visualizaciones
+
+#### Rbase
+
+```{r}
+
+top10dependencias <- dependencias %>% 
+  head(10) 
+
+barplot(top10dependencias$costo_total ~ top10dependencias$nombre)
+```
+
+
+
+### tidyverse
+
+```{r}
+qplot(y= reorder(nombre, costo_total), 
+      x=costo_total/1000000, # Para expresar los valores en millones de pesos
+      data=top10dependencias, geom="col") + #En GG el signo de más pone una nueva capa gráfica
+  labs(title= "Gasto en publicidad oficial por dependencia",
+       x="Millones de pesos (nominales)", 
+       y="Nombre de la dependencia",
+       caption = "Fuente: Secretaría de la Función Pública") +
+  geom_col(fill="magenta")
+
+ggsave("outputs/img.png", width = 10, height = 8)
+
+library(svglite)
+
+ggsave("outputs/img.svg", width = 15, height = 8)
+
+```
+
+
+
+### Bonus track: Filtros con caracteres.
+
+- Pregunta: ¿Cuánto costó la camapaña vs las adicciones?
+
+```{r}
+
+adicciones <- comsoc.19.limpio %>% 
+  filter(str_detect(notas_aclaratorias,
+                    "ADI.*S"))
+
+sum(adicciones$costo)
+
+```
+
 

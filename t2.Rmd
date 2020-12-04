@@ -1,0 +1,77 @@
+---
+title: "Tarea 2"
+author: "Manuel Toral"
+date: "12/11/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+1. Abre un nuevo script desde *RStudio*.
+2. Copia el script que está contenido en la caja. Encontrarás instrucciones en cada comentario dentro de corchetes "[ ]".
+3. Resuelve cada ejercicio y asegúrate que corra completamente.
+
+```{r, eval = F}
+
+## Título: Tarea 2
+## Autora o autor: [Pon tu nombre]
+## Fecha: [Fecha en que realizas la tarea]
+
+
+#### 0. Setup =====================================================
+
+## a. [Limpia tu espacio de trabajo con el comando rm()]
+
+#### 1. Bibliotecas  =====================================================
+
+## b. [Llama a las siguientes bibliotecas: tidyverse, janitor, tidytuesdayR y readr.
+##     Asegúrate de instalar las bibliotecas que no tengas instaladas.]
+
+#### 3. Datos  =====================================================
+
+## c.1. [Así como en la clase, descarga los datos de la siguiente liga:
+##       https://datos.cdmx.gob.mx/explore/dataset/servicios-para-la-poblacion-en-general/download/?format=csv&refine.municipio_hechos=IZTACALCO&refine.fecha_alta=2020&timezone=America/Mexico_City&lang=es&use_labels_for_header=true&csv_separator=%2C]
+## c.2. [Guarda el documento resultante en un archivo llamado "llamadas_iztacalco.csv"]
+
+
+#url <- "XXXXXX"
+
+#destfile <- "input/XXXXXX"
+
+#download.file(url, destfile, mode = "wb")
+
+
+
+#### 4. Explorar  =====================================================
+
+## d.1 [Utiliza el comando read_csv para leer los datos que acabas de descargar y guardarlos en un objeto llamado "llamadas". Puedes también usar la herramienta manual.]
+## d.2 [Utiliza el comando glimpse y el comando summary para observar su estructura.]
+
+#llamadas <- read_csv("input/XXXXXX")
+
+
+
+
+#### 5. Tareas con las 5 funciones principales de dplyr  =====================================================
+
+# Utiliza las 5 funciones de dplyr para resolver las siguientes preguntas:
+
+## 1. Filtra todas las observaciones cuya variable "OCUPACION" tenga el valor de "HOGAR".
+
+## 2. Agrupa por la variable ocupación con "group_by" y utiliza "summarise" para contabilizar por grupo. n() es la función de contar.
+
+### Pista:
+### llamadas %>% 
+###   group_by(XXXXX) %>% 
+###   summarise(n())
+
+## 3. Agrega a tu función anterior la función arrange para ordenar de mayor a menor.
+
+## 4. Identifica la colonia de Iztacalco de dónde más se han recibido llamadas.
+
+```
+
