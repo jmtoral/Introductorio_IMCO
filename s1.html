@@ -570,31 +570,37 @@ library(fivethirtyeight)</code></pre>
 <p>Además, podemos guardar esta tabla en un objeto para manipularlo con mayo facilidad.</p>
 <pre class="r"><code>biopics</code></pre>
 <pre><code>## # A tibble: 761 x 14
-##    title site  country year_release box_office director number_of_subje~ subject type_of_subject race_known subject_race
-##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;          &lt;int&gt;      &lt;dbl&gt; &lt;chr&gt;               &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;           &lt;chr&gt;      &lt;chr&gt;       
-##  1 10 R~ tt00~ UK              1971         NA Richard~                1 John C~ Criminal        Unknown    &lt;NA&gt;        
-##  2 12 Y~ tt20~ US/UK           2013   56700000 Steve M~                1 Solomo~ Other           Known      African Ame~
-##  3 127 ~ tt15~ US/UK           2010   18300000 Danny B~                1 Aron R~ Athlete         Unknown    &lt;NA&gt;        
-##  4 1987  tt28~ Canada          2014         NA Ricardo~                1 Ricard~ Other           Known      White       
-##  5 20 D~ tt01~ US              1998     537000 Myles B~                1 Myles ~ Other           Unknown    &lt;NA&gt;        
-##  6 21    tt04~ US              2008   81200000 Robert ~                1 Jeff Ma Other           Known      Asian Ameri~
-##  7 24 H~ tt02~ UK              2002    1130000 Michael~                1 Tony W~ Musician        Known      White       
-##  8 42    tt04~ US              2013   95000000 Brian H~                1 Jackie~ Athlete         Known      African Ame~
-##  9 8 Se~ tt01~ US              1994   19600000 John G.~                1 Lane F~ Athlete         Unknown    &lt;NA&gt;        
-## 10 84 C~ tt00~ US/UK           1987    1080000 David H~                2 Frank ~ Author          Unknown    &lt;NA&gt;        
-## # ... with 751 more rows, and 3 more variables: person_of_color &lt;lgl&gt;, subject_sex &lt;chr&gt;, lead_actor_actress &lt;chr&gt;</code></pre>
+##    title site  country year_release box_office director number_of_subje~ subject
+##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;          &lt;int&gt;      &lt;dbl&gt; &lt;chr&gt;               &lt;int&gt; &lt;chr&gt;  
+##  1 10 R~ tt00~ UK              1971         NA Richard~                1 John C~
+##  2 12 Y~ tt20~ US/UK           2013   56700000 Steve M~                1 Solomo~
+##  3 127 ~ tt15~ US/UK           2010   18300000 Danny B~                1 Aron R~
+##  4 1987  tt28~ Canada          2014         NA Ricardo~                1 Ricard~
+##  5 20 D~ tt01~ US              1998     537000 Myles B~                1 Myles ~
+##  6 21    tt04~ US              2008   81200000 Robert ~                1 Jeff Ma
+##  7 24 H~ tt02~ UK              2002    1130000 Michael~                1 Tony W~
+##  8 42    tt04~ US              2013   95000000 Brian H~                1 Jackie~
+##  9 8 Se~ tt01~ US              1994   19600000 John G.~                1 Lane F~
+## 10 84 C~ tt00~ US/UK           1987    1080000 David H~                2 Frank ~
+## # ... with 751 more rows, and 6 more variables: type_of_subject &lt;chr&gt;,
+## #   race_known &lt;chr&gt;, subject_race &lt;chr&gt;, person_of_color &lt;lgl&gt;,
+## #   subject_sex &lt;chr&gt;, lead_actor_actress &lt;chr&gt;</code></pre>
 <pre class="r"><code>bio &lt;- biopics</code></pre>
 </div>
 <div id="algunas-operaciones-con-rbase" class="section level2">
 <h2>Algunas operaciones con Rbase</h2>
 <pre class="r"><code>table(bio$country)</code></pre>
 <pre><code>## 
-##       Canada    Canada/UK           UK           US    US/Canada        US/UK US/UK/Canada 
-##           18           13          146          489           11           82            2</code></pre>
+##       Canada    Canada/UK           UK           US    US/Canada        US/UK 
+##           18           13          146          489           11           82 
+## US/UK/Canada 
+##            2</code></pre>
 <pre class="r"><code>prop.table(table(bio$country))</code></pre>
 <pre><code>## 
-##       Canada    Canada/UK           UK           US    US/Canada        US/UK US/UK/Canada 
-##  0.023653088  0.017082786  0.191852825  0.642575558  0.014454665  0.107752957  0.002628121</code></pre>
+##       Canada    Canada/UK           UK           US    US/Canada        US/UK 
+##  0.023653088  0.017082786  0.191852825  0.642575558  0.014454665  0.107752957 
+## US/UK/Canada 
+##  0.002628121</code></pre>
 <pre class="r"><code>paises &lt;- table(bio$country)
 
 proporcion_paises &lt;- prop.table(paises)
@@ -603,8 +609,10 @@ redondeo &lt;- round(proporcion_paises, 4)
 
 redondeo*100</code></pre>
 <pre><code>## 
-##       Canada    Canada/UK           UK           US    US/Canada        US/UK US/UK/Canada 
-##         2.37         1.71        19.19        64.26         1.45        10.78         0.26</code></pre>
+##       Canada    Canada/UK           UK           US    US/Canada        US/UK 
+##         2.37         1.71        19.19        64.26         1.45        10.78 
+## US/UK/Canada 
+##         0.26</code></pre>
 </div>
 
 

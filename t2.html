@@ -410,12 +410,34 @@ $(document).ready(function () {
 
 #download.file(url, destfile, mode = &quot;wb&quot;)
 
+
+
 #### 4. Explorar  =====================================================
 
 ## d.1 [Utiliza el comando read_csv para leer los datos que acabas de descargar y guardarlos en un objeto llamado &quot;llamadas&quot;. Puedes también usar la herramienta manual.]
-## d.2 [Escri]
+## d.2 [Utiliza el comando glimpse y el comando summary para observar su estructura.]
 
-#llamadas &lt;- read_csv(&quot;input/XXXXXX&quot;)</code></pre>
+#llamadas &lt;- read_csv(&quot;input/XXXXXX&quot;)
+
+
+
+
+#### 5. Tareas con las 5 funciones principales de dplyr  =====================================================
+
+# Utiliza las 5 funciones de dplyr para resolver las siguientes preguntas:
+
+## 1. Filtra todas las observaciones cuya variable &quot;OCUPACION&quot; tenga el valor de &quot;HOGAR&quot;.
+
+## 2. Agrupa por la variable ocupación con &quot;group_by&quot; y utiliza &quot;summarise&quot; para contabilizar por grupo. n() es la función de contar.
+
+### Pista:
+### llamadas %&gt;% 
+###   group_by(XXXXX) %&gt;% 
+###   summarise(n())
+
+## 3. Agrega a tu función anterior la función arrange para ordenar de mayor a menor.
+
+## 4. Identifica la colonia de Iztacalco de dónde más se han recibido llamadas.</code></pre>
 
 
 

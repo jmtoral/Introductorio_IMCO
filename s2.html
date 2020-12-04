@@ -28,6 +28,8 @@
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -511,11 +513,6 @@ h2.title {
 <pre class="r"><code>library(tidyverse)
 library(readxl) #Ya instalado con el tidyverse
 library(janitor) #Joya</code></pre>
-<pre><code>## 
-## Attaching package: &#39;janitor&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     chisq.test, fisher.test</code></pre>
 </div>
 <div id="datos" class="section level3">
 <h3>2. Datos</h3>
@@ -542,19 +539,21 @@ download.file(url, destfile, mode = &quot;wb&quot;)</code></pre>
 ## * ...</code></pre>
 <pre class="r"><code>comsoc.19</code></pre>
 <pre><code>## # A tibble: 12,340 x 27
-##    ...1  ...2  ...3  `SECRETARÍA DE ~ ...5  ...6  ...7  ...8  ...9  ...10 ...11 ...12 ...13 ...14 ...15 ...16 ...17 ...18
-##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
-##  1 &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt; Todos los monto~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-##  2 &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt; PERÍODO: ENERO ~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-##  3 &lt;NA&gt;  CS066 &quot;Con~ &lt;NA&gt;             &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-##  4 &lt;NA&gt;  &lt;NA&gt;  &quot;Fec~ &lt;NA&gt;             &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-##  5 Sect~ Tipo~ &quot;Ent~ Nombre           Mes   Fech~ Part~ Póli~ Cons. No. ~ Fech~ Prod~ Desc~ Impo~ IVA   Pers~ Clas~ Bene~
-##  6 0     E     &quot;625&quot; INSTITUTO NACIO~ 12    43830 36101 14331 1     DAOP~ 43691 37    INTE~ 5807~ 9291~ M     P     LA J~
-##  7 0     E     &quot;625&quot; INSTITUTO NACIO~ 12    43830 36101 14331 1     DAOP~ 43691 37    INTE~ &lt;NA&gt;  &lt;NA&gt;  M     P     LA J~
-##  8 0     E     &quot;625&quot; INSTITUTO NACIO~ 12    43830 36101 14331 0     DAOP~ 43691 21    DIAR~ 1018~ 16296 M     P     LA J~
-##  9 0     E     &quot;625&quot; INSTITUTO NACIO~ 12    43830 36101 14331 0     DAOP~ 43691 21    DIAR~ &lt;NA&gt;  &lt;NA&gt;  M     P     LA J~
-## 10 0     E     &quot;625&quot; INSTITUTO NACIO~ 12    43830 36101 14410 10    DAOP~ 43691 22    DIAR~ 1197~ 1916~ M     P     MEDI~
-## # ... with 12,330 more rows, and 9 more variables: ...19 &lt;chr&gt;, ...20 &lt;chr&gt;, ...21 &lt;chr&gt;, ...22 &lt;chr&gt;, ...23 &lt;chr&gt;,
+##    ...1  ...2  ...3  `SECRETARÍA DE ~ ...5  ...6  ...7  ...8  ...9  ...10 ...11
+##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+##  1 &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt; Todos los monto~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
+##  2 &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt; PERÍODO: ENERO ~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
+##  3 &lt;NA&gt;  CS066 &quot;Con~ &lt;NA&gt;             &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
+##  4 &lt;NA&gt;  &lt;NA&gt;  &quot;Fec~ &lt;NA&gt;             &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
+##  5 Sect~ Tipo~ &quot;Ent~ Nombre           Mes   Fech~ Part~ Póli~ Cons. No. ~ Fech~
+##  6 0     E     &quot;625&quot; INSTITUTO NACIO~ 12    43830 36101 14331 1     DAOP~ 43691
+##  7 0     E     &quot;625&quot; INSTITUTO NACIO~ 12    43830 36101 14331 1     DAOP~ 43691
+##  8 0     E     &quot;625&quot; INSTITUTO NACIO~ 12    43830 36101 14331 0     DAOP~ 43691
+##  9 0     E     &quot;625&quot; INSTITUTO NACIO~ 12    43830 36101 14331 0     DAOP~ 43691
+## 10 0     E     &quot;625&quot; INSTITUTO NACIO~ 12    43830 36101 14410 10    DAOP~ 43691
+## # ... with 12,330 more rows, and 16 more variables: ...12 &lt;chr&gt;, ...13 &lt;chr&gt;,
+## #   ...14 &lt;chr&gt;, ...15 &lt;chr&gt;, ...16 &lt;chr&gt;, ...17 &lt;chr&gt;, ...18 &lt;chr&gt;,
+## #   ...19 &lt;chr&gt;, ...20 &lt;chr&gt;, ...21 &lt;chr&gt;, ...22 &lt;chr&gt;, ...23 &lt;chr&gt;,
 ## #   ...24 &lt;chr&gt;, ...25 &lt;chr&gt;, ...26 &lt;chr&gt;, ...27 &lt;chr&gt;</code></pre>
 <p>¿Qué observas?, ¿qué está mal?, ¿cómo podríamos solucionarlo?</p>
 </div>
@@ -581,73 +580,233 @@ comsoc.19 &lt;- bind_rows(comsoc.19a, comsoc.19b)</code></pre>
 
 comsoc.19.limpio</code></pre>
 <pre><code>## # A tibble: 7,625 x 27
-##    Sector `Tipo Instituci~ Entidad Nombre Mes   `Fecha de gasto` Partida Póliza Cons. `No. de Contrat~ `Fecha de Contr~
-##    &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;           
-##  1 0      E                625     INSTI~ 12    43830            36101   14331  1     DAOP-031-22-2019 43691           
-##  2 0      E                625     INSTI~ 12    43830            36101   14331  0     DAOP-031-22-2019 43691           
-##  3 0      E                625     INSTI~ 12    43830            36101   14410  10    DAOP-031-36-2019 43691           
-##  4 0      E                625     INSTI~ 12    43830            36101   14410  0     DAOP-031-26-2019 43691           
-##  5 0      E                625     INSTI~ 12    43830            36101   14410  1     DAOP-031-26-200~ 43691           
-##  6 0      E                625     INSTI~ 12    43830            36101   14410  2     DAOP-031-26-2019 43691           
-##  7 0      E                625     INSTI~ 12    43830            36101   14410  3     DAOP-031-26-2019 43691           
-##  8 0      E                625     INSTI~ 12    43830            36101   14410  4     DAOP-031-26-2019 43691           
-##  9 0      E                625     INSTI~ 12    43830            36101   14410  5     SAOP-031-26-2019 43691           
-## 10 0      E                625     INSTI~ 12    43830            36101   14410  6     DAOP-031-26-2019 43691           
-## # ... with 7,615 more rows, and 16 more variables: Producto &lt;chr&gt;, `Descripción Producto` &lt;chr&gt;, Importe &lt;chr&gt;,
-## #   IVA &lt;chr&gt;, `Persona (F/M)` &lt;chr&gt;, `Clase de Beneficiario` &lt;chr&gt;, Beneficiario &lt;chr&gt;, Campaña &lt;chr&gt;,
-## #   Intercambio &lt;chr&gt;, `Unidad de medida` &lt;chr&gt;, `Descripción Unidad` &lt;chr&gt;, Cantidad &lt;chr&gt;, `Costo Unitario` &lt;chr&gt;,
-## #   Costo &lt;chr&gt;, `IVA del Costo` &lt;chr&gt;, `Notas aclaratorias` &lt;chr&gt;</code></pre>
+##    Sector `Tipo Instituci~ Entidad Nombre Mes   `Fecha de gasto` Partida Póliza
+##    &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt; 
+##  1 0      E                625     INSTI~ 12    43830            36101   14331 
+##  2 0      E                625     INSTI~ 12    43830            36101   14331 
+##  3 0      E                625     INSTI~ 12    43830            36101   14410 
+##  4 0      E                625     INSTI~ 12    43830            36101   14410 
+##  5 0      E                625     INSTI~ 12    43830            36101   14410 
+##  6 0      E                625     INSTI~ 12    43830            36101   14410 
+##  7 0      E                625     INSTI~ 12    43830            36101   14410 
+##  8 0      E                625     INSTI~ 12    43830            36101   14410 
+##  9 0      E                625     INSTI~ 12    43830            36101   14410 
+## 10 0      E                625     INSTI~ 12    43830            36101   14410 
+## # ... with 7,615 more rows, and 19 more variables: Cons. &lt;chr&gt;, `No. de
+## #   Contrato/Pedido` &lt;chr&gt;, `Fecha de Contrato/Pedido` &lt;chr&gt;, Producto &lt;chr&gt;,
+## #   `Descripción Producto` &lt;chr&gt;, Importe &lt;chr&gt;, IVA &lt;chr&gt;, `Persona
+## #   (F/M)` &lt;chr&gt;, `Clase de Beneficiario` &lt;chr&gt;, Beneficiario &lt;chr&gt;,
+## #   Campaña &lt;chr&gt;, Intercambio &lt;chr&gt;, `Unidad de medida` &lt;chr&gt;, `Descripción
+## #   Unidad` &lt;chr&gt;, Cantidad &lt;chr&gt;, `Costo Unitario` &lt;chr&gt;, Costo &lt;chr&gt;, `IVA
+## #   del Costo` &lt;chr&gt;, `Notas aclaratorias` &lt;chr&gt;</code></pre>
 <pre class="r"><code>glimpse(comsoc.19.limpio)</code></pre>
 <pre><code>## Rows: 7,625
 ## Columns: 27
-## $ Sector                     &lt;chr&gt; &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;...
-## $ `Tipo Institución`         &lt;chr&gt; &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;...
-## $ Entidad                    &lt;chr&gt; &quot;625&quot;, &quot;625&quot;, &quot;625&quot;, &quot;625&quot;, &quot;625&quot;, &quot;625&quot;, &quot;625&quot;, &quot;625&quot;, &quot;625&quot;, &quot;625&quot;, &quot;625&quot;, &quot;625...
-## $ Nombre                     &lt;chr&gt; &quot;INSTITUTO NACIONAL DE LOS PUEBLOS INDÍGENAS (INPI)&quot;, &quot;INSTITUTO NACIONAL DE LOS ...
-## $ Mes                        &lt;chr&gt; &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12...
-## $ `Fecha de gasto`           &lt;chr&gt; &quot;43830&quot;, &quot;43830&quot;, &quot;43830&quot;, &quot;43830&quot;, &quot;43830&quot;, &quot;43830&quot;, &quot;43830&quot;, &quot;43830&quot;, &quot;43830&quot;, ...
-## $ Partida                    &lt;chr&gt; &quot;36101&quot;, &quot;36101&quot;, &quot;36101&quot;, &quot;36101&quot;, &quot;36101&quot;, &quot;36101&quot;, &quot;36101&quot;, &quot;36101&quot;, &quot;36101&quot;, ...
-## $ Póliza                     &lt;chr&gt; &quot;14331&quot;, &quot;14331&quot;, &quot;14410&quot;, &quot;14410&quot;, &quot;14410&quot;, &quot;14410&quot;, &quot;14410&quot;, &quot;14410&quot;, &quot;14410&quot;, ...
-## $ Cons.                      &lt;chr&gt; &quot;1&quot;, &quot;0&quot;, &quot;10&quot;, &quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;11&quot;, &quot;12&quot;, &quot;13...
-## $ `No. de Contrato/Pedido`   &lt;chr&gt; &quot;DAOP-031-22-2019&quot;, &quot;DAOP-031-22-2019&quot;, &quot;DAOP-031-36-2019&quot;, &quot;DAOP-031-26-2019&quot;, &quot;...
-## $ `Fecha de Contrato/Pedido` &lt;chr&gt; &quot;43691&quot;, &quot;43691&quot;, &quot;43691&quot;, &quot;43691&quot;, &quot;43691&quot;, &quot;43691&quot;, &quot;43691&quot;, &quot;43691&quot;, &quot;43691&quot;, ...
-## $ Producto                   &lt;chr&gt; &quot;37&quot;, &quot;21&quot;, &quot;22&quot;, &quot;22&quot;, &quot;22&quot;, &quot;22&quot;, &quot;22&quot;, &quot;22&quot;, &quot;22&quot;, &quot;22&quot;, &quot;22&quot;, &quot;22&quot;, &quot;22&quot;, &quot;22...
-## $ `Descripción Producto`     &lt;chr&gt; &quot;INTERNET&quot;, &quot;DIARIOS EDITADOS EN LA CD. DE MÉXICO&quot;, &quot;DIARIOS EDITADOS EN LOS ESTA...
-## $ Importe                    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N...
-## $ IVA                        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N...
-## $ `Persona (F/M)`            &lt;chr&gt; &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;...
-## $ `Clase de Beneficiario`    &lt;chr&gt; &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;...
-## $ Beneficiario               &lt;chr&gt; &quot;LA JORNADA, DEMOS DESARROLLO DE MED IOS, S.A. DE C.V.&quot;, &quot;LA JORNADA, DEMOS DESAR...
-## $ Campaña                    &lt;chr&gt; &quot;051/19-2001-TC22-00625&quot;, &quot;051/19-2001-TC22-00625&quot;, &quot;051/19-2001-TC22-00625&quot;, &quot;05...
-## $ Intercambio                &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N...
-## $ `Unidad de medida`         &lt;chr&gt; &quot;99&quot;, &quot;28&quot;, &quot;28&quot;, &quot;28&quot;, &quot;28&quot;, &quot;28&quot;, &quot;28&quot;, &quot;28&quot;, &quot;28&quot;, &quot;28&quot;, &quot;28&quot;, &quot;28&quot;, &quot;28&quot;, &quot;28...
-## $ `Descripción Unidad`       &lt;chr&gt; &quot;OTRO FORMATO (ESPECIFICAR EN NOTAS ACLARATORIAS)&quot;, &quot;1/4 PLANA&quot;, &quot;1/4 PLANA&quot;, &quot;1/...
-## $ Cantidad                   &lt;chr&gt; &quot;1&quot;, &quot;2&quot;, &quot;20&quot;, &quot;6&quot;, &quot;20&quot;, &quot;9&quot;, &quot;18&quot;, &quot;9&quot;, &quot;9&quot;, &quot;7&quot;, &quot;10&quot;, &quot;8&quot;, &quot;9&quot;, &quot;11&quot;, &quot;11&quot;, ...
-## $ `Costo Unitario`           &lt;chr&gt; &quot;58070.720000000001&quot;, &quot;50925&quot;, &quot;5988.83&quot;, &quot;19129.34&quot;, &quot;6148.88&quot;, &quot;22801.21&quot;, &quot;725...
-## $ Costo                      &lt;chr&gt; &quot;58070.720000000001&quot;, &quot;101850&quot;, &quot;119776.6&quot;, &quot;114776.04&quot;, &quot;122977.60000000001&quot;, &quot;2...
-## $ `IVA del Costo`            &lt;chr&gt; &quot;9291.32&quot;, &quot;16296&quot;, &quot;19164.259999999998&quot;, &quot;18364.169999999998&quot;, &quot;19676.4199999999...
-## $ `Notas aclaratorias`       &lt;chr&gt; &quot;BOX BANNER&quot;, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, &quot;BOX BANNER...</code></pre>
-<pre class="r"><code>comsoc.19.limpio %&gt;% 
-  mutate(Costo = as.numeric(Costo)) %&gt;% 
-  arrange(-Costo)</code></pre>
-<pre><code>## # A tibble: 7,625 x 27
-##    Sector `Tipo Instituci~ Entidad Nombre Mes   `Fecha de gasto` Partida Póliza Cons. `No. de Contrat~ `Fecha de Contr~
-##    &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;           
-##  1 0      E                641     INSTI~ 12    43775            36101   PO037~ 3     UCSA190922020010 43698           
-##  2 4      D                4000    SECRE~ 12    43861            36101   30024~ 0     &lt;NA&gt;             &lt;NA&gt;            
-##  3 4      D                4000    SECRE~ 12    43861            36101   30024~ 0     &lt;NA&gt;             &lt;NA&gt;            
-##  4 0      E                641     INSTI~ 12    43817            36101   PO038~ 1     UCSA190922020009 43698           
-##  5 4      D                4000    SECRE~ 12    43878            36101   30026~ 0     &lt;NA&gt;             &lt;NA&gt;            
-##  6 0      E                641     INSTI~ 12    43811            36101   PO038~ 12    UCSA190922020009 43698           
-##  7 4      D                4000    SECRE~ 12    43881            36101   30026~ 0     &lt;NA&gt;             &lt;NA&gt;            
-##  8 0      E                641     INSTI~ 11    43734            36101   PO037~ 2     UCSA190922020010 43698           
-##  9 0      E                641     INSTI~ 12    43810            36101   PO038~ 0     UCSA190922020010 43698           
-## 10 4      D                4000    SECRE~ 12    43878            36101   30026~ 0     &lt;NA&gt;             &lt;NA&gt;            
-## # ... with 7,615 more rows, and 16 more variables: Producto &lt;chr&gt;, `Descripción Producto` &lt;chr&gt;, Importe &lt;chr&gt;,
-## #   IVA &lt;chr&gt;, `Persona (F/M)` &lt;chr&gt;, `Clase de Beneficiario` &lt;chr&gt;, Beneficiario &lt;chr&gt;, Campaña &lt;chr&gt;,
-## #   Intercambio &lt;chr&gt;, `Unidad de medida` &lt;chr&gt;, `Descripción Unidad` &lt;chr&gt;, Cantidad &lt;chr&gt;, `Costo Unitario` &lt;chr&gt;,
-## #   Costo &lt;dbl&gt;, `IVA del Costo` &lt;chr&gt;, `Notas aclaratorias` &lt;chr&gt;</code></pre>
+## $ Sector                     &lt;chr&gt; &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, ...
+## $ `Tipo Institución`         &lt;chr&gt; &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, ...
+## $ Entidad                    &lt;chr&gt; &quot;625&quot;, &quot;625&quot;, &quot;625&quot;, &quot;625&quot;, &quot;625&quot;, &quot;625&quot;...
+## $ Nombre                     &lt;chr&gt; &quot;INSTITUTO NACIONAL DE LOS PUEBLOS INDÍG...
+## $ Mes                        &lt;chr&gt; &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;...
+## $ `Fecha de gasto`           &lt;chr&gt; &quot;43830&quot;, &quot;43830&quot;, &quot;43830&quot;, &quot;43830&quot;, &quot;438...
+## $ Partida                    &lt;chr&gt; &quot;36101&quot;, &quot;36101&quot;, &quot;36101&quot;, &quot;36101&quot;, &quot;361...
+## $ Póliza                     &lt;chr&gt; &quot;14331&quot;, &quot;14331&quot;, &quot;14410&quot;, &quot;14410&quot;, &quot;144...
+## $ Cons.                      &lt;chr&gt; &quot;1&quot;, &quot;0&quot;, &quot;10&quot;, &quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;,...
+## $ `No. de Contrato/Pedido`   &lt;chr&gt; &quot;DAOP-031-22-2019&quot;, &quot;DAOP-031-22-2019&quot;, ...
+## $ `Fecha de Contrato/Pedido` &lt;chr&gt; &quot;43691&quot;, &quot;43691&quot;, &quot;43691&quot;, &quot;43691&quot;, &quot;436...
+## $ Producto                   &lt;chr&gt; &quot;37&quot;, &quot;21&quot;, &quot;22&quot;, &quot;22&quot;, &quot;22&quot;, &quot;22&quot;, &quot;22&quot;...
+## $ `Descripción Producto`     &lt;chr&gt; &quot;INTERNET&quot;, &quot;DIARIOS EDITADOS EN LA CD. ...
+## $ Importe                    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
+## $ IVA                        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
+## $ `Persona (F/M)`            &lt;chr&gt; &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, ...
+## $ `Clase de Beneficiario`    &lt;chr&gt; &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, &quot;P&quot;, ...
+## $ Beneficiario               &lt;chr&gt; &quot;LA JORNADA, DEMOS DESARROLLO DE MED IOS...
+## $ Campaña                    &lt;chr&gt; &quot;051/19-2001-TC22-00625&quot;, &quot;051/19-2001-T...
+## $ Intercambio                &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
+## $ `Unidad de medida`         &lt;chr&gt; &quot;99&quot;, &quot;28&quot;, &quot;28&quot;, &quot;28&quot;, &quot;28&quot;, &quot;28&quot;, &quot;28&quot;...
+## $ `Descripción Unidad`       &lt;chr&gt; &quot;OTRO FORMATO (ESPECIFICAR EN NOTAS ACLA...
+## $ Cantidad                   &lt;chr&gt; &quot;1&quot;, &quot;2&quot;, &quot;20&quot;, &quot;6&quot;, &quot;20&quot;, &quot;9&quot;, &quot;18&quot;, &quot;9...
+## $ `Costo Unitario`           &lt;chr&gt; &quot;58070.720000000001&quot;, &quot;50925&quot;, &quot;5988.83&quot;...
+## $ Costo                      &lt;chr&gt; &quot;58070.720000000001&quot;, &quot;101850&quot;, &quot;119776....
+## $ `IVA del Costo`            &lt;chr&gt; &quot;9291.32&quot;, &quot;16296&quot;, &quot;19164.259999999998&quot;...
+## $ `Notas aclaratorias`       &lt;chr&gt; &quot;BOX BANNER&quot;, NA, NA, NA, NA, NA, NA, NA...</code></pre>
+<pre class="r"><code>comsoc.19.limpio &lt;- comsoc.19.limpio %&gt;% 
+  mutate(Costo = as.numeric(Costo)) %&gt;% # Convertir caracter a números
+  arrange(-Costo) %&gt;% 
+  clean_names() ## Limpiar nombres
+
+glimpse(comsoc.19.limpio )</code></pre>
+<pre><code>## Rows: 7,625
+## Columns: 27
+## $ sector                   &lt;chr&gt; &quot;0&quot;, &quot;4&quot;, &quot;4&quot;, &quot;0&quot;, &quot;4&quot;, &quot;0&quot;, &quot;4&quot;, &quot;0&quot;, &quot;0...
+## $ tipo_institucion         &lt;chr&gt; &quot;E&quot;, &quot;D&quot;, &quot;D&quot;, &quot;E&quot;, &quot;D&quot;, &quot;E&quot;, &quot;D&quot;, &quot;E&quot;, &quot;E...
+## $ entidad                  &lt;chr&gt; &quot;641&quot;, &quot;4000&quot;, &quot;4000&quot;, &quot;641&quot;, &quot;4000&quot;, &quot;641...
+## $ nombre                   &lt;chr&gt; &quot;INSTITUTO MEXICANO DEL SEGURO SOCIAL  (IM...
+## $ mes                      &lt;chr&gt; &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, ...
+## $ fecha_de_gasto           &lt;chr&gt; &quot;43775&quot;, &quot;43861&quot;, &quot;43861&quot;, &quot;43817&quot;, &quot;43878...
+## $ partida                  &lt;chr&gt; &quot;36101&quot;, &quot;36101&quot;, &quot;36101&quot;, &quot;36101&quot;, &quot;36101...
+## $ poliza                   &lt;chr&gt; &quot;PO03789490&quot;, &quot;3002445&quot;, &quot;3002446&quot;, &quot;PO038...
+## $ cons                     &lt;chr&gt; &quot;3&quot;, &quot;0&quot;, &quot;0&quot;, &quot;1&quot;, &quot;0&quot;, &quot;12&quot;, &quot;0&quot;, &quot;2&quot;, &quot;...
+## $ no_de_contrato_pedido    &lt;chr&gt; &quot;UCSA190922020010&quot;, NA, NA, &quot;UCSA190922020...
+## $ fecha_de_contrato_pedido &lt;chr&gt; &quot;43698&quot;, NA, NA, &quot;43698&quot;, NA, &quot;43698&quot;, NA,...
+## $ producto                 &lt;chr&gt; &quot;31&quot;, &quot;31&quot;, &quot;31&quot;, &quot;31&quot;, &quot;31&quot;, &quot;31&quot;, &quot;31&quot;, ...
+## $ descripcion_producto     &lt;chr&gt; &quot;TELEVISIÓN ABIERTA NACIONAL&quot;, &quot;TELEVISIÓN...
+## $ importe                  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ iva                      &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ persona_f_m              &lt;chr&gt; &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M...
+## $ clase_de_beneficiario    &lt;chr&gt; &quot;T&quot;, &quot;T&quot;, &quot;T&quot;, &quot;T&quot;, &quot;T&quot;, &quot;T&quot;, &quot;T&quot;, &quot;T&quot;, &quot;T...
+## $ beneficiario             &lt;chr&gt; &quot;ESTUDIOS AZTECA, S.A. DE C.V.&quot;, &quot;GRUPO TE...
+## $ campana                  &lt;chr&gt; &quot;069/19-2001-TC23-00641&quot;, &quot;054/19-2001-TC2...
+## $ intercambio              &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ unidad_de_medida         &lt;chr&gt; &quot;18&quot;, &quot;99&quot;, &quot;99&quot;, &quot;18&quot;, &quot;99&quot;, &quot;18&quot;, &quot;4&quot;, &quot;...
+## $ descripcion_unidad       &lt;chr&gt; &quot;SPOT DE 30 SEGUNDOS&quot;, &quot;OTRO FORMATO (ESPE...
+## $ cantidad                 &lt;chr&gt; &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1...
+## $ costo_unitario           &lt;chr&gt; &quot;27241379.309999999&quot;, &quot;25862068.949999999&quot;...
+## $ costo                    &lt;dbl&gt; 27241379, 25862069, 25858402, 22327586, 20...
+## $ iva_del_costo            &lt;chr&gt; &quot;4358620.6900000004&quot;, &quot;4137931.03&quot;, &quot;41373...
+## $ notas_aclaratorias       &lt;chr&gt; NA, &quot;CAMPAÑA: ADICCI0NES. VERSIÓNES: DATE ...</code></pre>
 </div>
+</div>
+<div id="análisis" class="section level3">
+<h3>3 Análisis</h3>
+<div id="pregunta-qué-dependencia-ha-gastado-más-en-publicidad-oficial" class="section level4">
+<h4>3.1 Pregunta: ¿Qué dependencia ha gastado más en publicidad oficial?</h4>
+<ul>
+<li><strong>Hipótesis</strong>: Secretaría de Salud es la que más ha gastado.</li>
+</ul>
+<pre class="r"><code>dependencias &lt;- comsoc.19.limpio %&gt;%
+  group_by(nombre) %&gt;% 
+  summarise(costo_total = sum(costo)) %&gt;% 
+  arrange(-costo_total)%&gt;% 
+  ungroup %&gt;% 
+  mutate(proporcion = costo_total/sum(costo_total)) %&gt;% 
+  mutate(proporcion =round(proporcion*100, 2))</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<p>¿Cómo filtrar solamente a la Defensa?</p>
+<pre class="r"><code>dependencias %&gt;% 
+  filter(str_detect(nombre, &quot;Defensa|DEFENSA|defensa&quot;))</code></pre>
+<pre><code>## # A tibble: 2 x 3
+##   nombre                                                  costo_total proporcion
+##   &lt;chr&gt;                                                         &lt;dbl&gt;      &lt;dbl&gt;
+## 1 SECRETARÍA DE LA DEFENSA NACIONAL  (SEDENA)               94225186.       3.47
+## 2 PROCURADURÍA DE LA DEFENSA DEL CONTRIBUYENTE (PRODECON)   29651565.       1.09</code></pre>
+<pre class="r"><code>dependencias %&gt;% 
+  filter(nombre == &quot;SECRETARÍA DE LA DEFENSA NACIONAL  (SEDENA)&quot;)</code></pre>
+<pre><code>## # A tibble: 1 x 3
+##   nombre                                      costo_total proporcion
+##   &lt;chr&gt;                                             &lt;dbl&gt;      &lt;dbl&gt;
+## 1 SECRETARÍA DE LA DEFENSA NACIONAL  (SEDENA)   94225186.       3.47</code></pre>
+</div>
+<div id="pregunta-qué-empresa-ha-cobrado-más-en-publicidad-oficial" class="section level4">
+<h4>3.2 Pregunta: ¿Qué empresa ha cobrado más en publicidad oficial?</h4>
+<ul>
+<li><strong>Hipótesis</strong>: TV Azteca es la que más ha gastado.</li>
+</ul>
+<pre class="r"><code>names(comsoc.19.limpio)</code></pre>
+<pre><code>##  [1] &quot;sector&quot;                   &quot;tipo_institucion&quot;        
+##  [3] &quot;entidad&quot;                  &quot;nombre&quot;                  
+##  [5] &quot;mes&quot;                      &quot;fecha_de_gasto&quot;          
+##  [7] &quot;partida&quot;                  &quot;poliza&quot;                  
+##  [9] &quot;cons&quot;                     &quot;no_de_contrato_pedido&quot;   
+## [11] &quot;fecha_de_contrato_pedido&quot; &quot;producto&quot;                
+## [13] &quot;descripcion_producto&quot;     &quot;importe&quot;                 
+## [15] &quot;iva&quot;                      &quot;persona_f_m&quot;             
+## [17] &quot;clase_de_beneficiario&quot;    &quot;beneficiario&quot;            
+## [19] &quot;campana&quot;                  &quot;intercambio&quot;             
+## [21] &quot;unidad_de_medida&quot;         &quot;descripcion_unidad&quot;      
+## [23] &quot;cantidad&quot;                 &quot;costo_unitario&quot;          
+## [25] &quot;costo&quot;                    &quot;iva_del_costo&quot;           
+## [27] &quot;notas_aclaratorias&quot;</code></pre>
+<pre class="r"><code>glimpse(comsoc.19.limpio)</code></pre>
+<pre><code>## Rows: 7,625
+## Columns: 27
+## $ sector                   &lt;chr&gt; &quot;0&quot;, &quot;4&quot;, &quot;4&quot;, &quot;0&quot;, &quot;4&quot;, &quot;0&quot;, &quot;4&quot;, &quot;0&quot;, &quot;0...
+## $ tipo_institucion         &lt;chr&gt; &quot;E&quot;, &quot;D&quot;, &quot;D&quot;, &quot;E&quot;, &quot;D&quot;, &quot;E&quot;, &quot;D&quot;, &quot;E&quot;, &quot;E...
+## $ entidad                  &lt;chr&gt; &quot;641&quot;, &quot;4000&quot;, &quot;4000&quot;, &quot;641&quot;, &quot;4000&quot;, &quot;641...
+## $ nombre                   &lt;chr&gt; &quot;INSTITUTO MEXICANO DEL SEGURO SOCIAL  (IM...
+## $ mes                      &lt;chr&gt; &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, &quot;12&quot;, ...
+## $ fecha_de_gasto           &lt;chr&gt; &quot;43775&quot;, &quot;43861&quot;, &quot;43861&quot;, &quot;43817&quot;, &quot;43878...
+## $ partida                  &lt;chr&gt; &quot;36101&quot;, &quot;36101&quot;, &quot;36101&quot;, &quot;36101&quot;, &quot;36101...
+## $ poliza                   &lt;chr&gt; &quot;PO03789490&quot;, &quot;3002445&quot;, &quot;3002446&quot;, &quot;PO038...
+## $ cons                     &lt;chr&gt; &quot;3&quot;, &quot;0&quot;, &quot;0&quot;, &quot;1&quot;, &quot;0&quot;, &quot;12&quot;, &quot;0&quot;, &quot;2&quot;, &quot;...
+## $ no_de_contrato_pedido    &lt;chr&gt; &quot;UCSA190922020010&quot;, NA, NA, &quot;UCSA190922020...
+## $ fecha_de_contrato_pedido &lt;chr&gt; &quot;43698&quot;, NA, NA, &quot;43698&quot;, NA, &quot;43698&quot;, NA,...
+## $ producto                 &lt;chr&gt; &quot;31&quot;, &quot;31&quot;, &quot;31&quot;, &quot;31&quot;, &quot;31&quot;, &quot;31&quot;, &quot;31&quot;, ...
+## $ descripcion_producto     &lt;chr&gt; &quot;TELEVISIÓN ABIERTA NACIONAL&quot;, &quot;TELEVISIÓN...
+## $ importe                  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ iva                      &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ persona_f_m              &lt;chr&gt; &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M...
+## $ clase_de_beneficiario    &lt;chr&gt; &quot;T&quot;, &quot;T&quot;, &quot;T&quot;, &quot;T&quot;, &quot;T&quot;, &quot;T&quot;, &quot;T&quot;, &quot;T&quot;, &quot;T...
+## $ beneficiario             &lt;chr&gt; &quot;ESTUDIOS AZTECA, S.A. DE C.V.&quot;, &quot;GRUPO TE...
+## $ campana                  &lt;chr&gt; &quot;069/19-2001-TC23-00641&quot;, &quot;054/19-2001-TC2...
+## $ intercambio              &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ unidad_de_medida         &lt;chr&gt; &quot;18&quot;, &quot;99&quot;, &quot;99&quot;, &quot;18&quot;, &quot;99&quot;, &quot;18&quot;, &quot;4&quot;, &quot;...
+## $ descripcion_unidad       &lt;chr&gt; &quot;SPOT DE 30 SEGUNDOS&quot;, &quot;OTRO FORMATO (ESPE...
+## $ cantidad                 &lt;chr&gt; &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1...
+## $ costo_unitario           &lt;chr&gt; &quot;27241379.309999999&quot;, &quot;25862068.949999999&quot;...
+## $ costo                    &lt;dbl&gt; 27241379, 25862069, 25858402, 22327586, 20...
+## $ iva_del_costo            &lt;chr&gt; &quot;4358620.6900000004&quot;, &quot;4137931.03&quot;, &quot;41373...
+## $ notas_aclaratorias       &lt;chr&gt; NA, &quot;CAMPAÑA: ADICCI0NES. VERSIÓNES: DATE ...</code></pre>
+<pre class="r"><code>empresa &lt;- comsoc.19.limpio %&gt;%
+  mutate(Costo = as.numeric(costo)) %&gt;%  # Convertir caracter a números
+  group_by(beneficiario) %&gt;% ### El grupo que define la empresa
+  summarise(costo_total = sum(Costo)) %&gt;% 
+  arrange(-costo_total) %&gt;% 
+  ungroup %&gt;% 
+  mutate(proporcion = costo_total/sum(costo_total)) %&gt;% 
+  mutate(proporcion =round(proporcion*100, 2))</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+</div>
+<div id="pregunta-qué-producto-es-el-que-mas-se-vende" class="section level4">
+<h4>3.3 Pregunta: ¿Qué producto es el que mas se vende?</h4>
+<pre class="r"><code>producto &lt;- comsoc.19.limpio %&gt;% 
+  group_by(descripcion_producto) %&gt;% ### El grupo que define la empresa
+  summarise(costo_total = sum(costo)) %&gt;% 
+  arrange(-costo_total) %&gt;% 
+  ungroup %&gt;% 
+  mutate(proporcion = costo_total/sum(costo_total)) %&gt;% 
+  mutate(proporcion =round(proporcion*100, 2))</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+</div>
+</div>
+<div id="algunas-visualizaciones" class="section level3">
+<h3>4. Algunas visualizaciones</h3>
+<div id="rbase" class="section level4">
+<h4>Rbase</h4>
+<pre class="r"><code>top10dependencias &lt;- dependencias %&gt;% 
+  head(10) 
+
+barplot(top10dependencias$costo_total ~ top10dependencias$nombre)</code></pre>
+<p><img src="s2_files/figure-html/unnamed-chunk-14-1.png" /><!-- --></p>
+</div>
+</div>
+<div id="tidyverse" class="section level3">
+<h3>tidyverse</h3>
+<pre class="r"><code>qplot(y= reorder(nombre, costo_total), 
+      x=costo_total/1000000, # Para expresar los valores en millones de pesos
+      data=top10dependencias, geom=&quot;col&quot;) + #En GG el signo de más pone una nueva capa gráfica
+  labs(title= &quot;Gasto en publicidad oficial por dependencia&quot;,
+       x=&quot;Millones de pesos (nominales)&quot;, 
+       y=&quot;Nombre de la dependencia&quot;,
+       caption = &quot;Fuente: Secretaría de la Función Pública&quot;) +
+  geom_col(fill=&quot;magenta&quot;)</code></pre>
+<p><img src="s2_files/figure-html/unnamed-chunk-15-1.png" /><!-- --></p>
+<pre class="r"><code>#ggsave(&quot;outputs/img.png&quot;, width = 10, height = 8)
+
+#library(svglite)
+
+#ggsave(&quot;outputs/img.svg&quot;, width = 15, height = 8)</code></pre>
+</div>
+<div id="bonus-track-filtros-con-caracteres." class="section level3">
+<h3>Bonus track: Filtros con caracteres.</h3>
+<ul>
+<li>Pregunta: ¿Cuánto costó la camapaña vs las adicciones?</li>
+</ul>
+<pre class="r"><code>adicciones &lt;- comsoc.19.limpio %&gt;% 
+  filter(str_detect(notas_aclaratorias,
+                    &quot;ADI.*S&quot;))
+
+sum(adicciones$costo)</code></pre>
+<pre><code>## [1] 446164351</code></pre>
 </div>
 </div>
 
